@@ -49,7 +49,7 @@
  */
 
 /**
- * getAllMoviesReleasedAtOrBefor()eYear
+ * getAllMoviesReleasedAtOrBeforeYear()
  * -----------------------------
  * Returns all movie objects with a `released` year equal to or less than the given year.
  * @param {Object[]} movies - An array of movies. See the instructions and `movies.js` file for examples of inputs.

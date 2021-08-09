@@ -57,7 +57,7 @@ function getHighestMetascore() {}
 function getAverageIMDBRating() {}
 
 /**
- * countByRating()
+ * countByRated()
  * -----------------------------
  * Returns an object where the keys are movie ratings and the values are the number of movies in the array with that rating. If the inputted `movies` array is empty, return `{}`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
@@ -67,7 +67,7 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRated() {}
 
 /**
  * findById()
@@ -149,7 +149,7 @@ module.exports = {
   getAllMovieTitles,
   getHighestMetascore,
   getAverageIMDBRating,
-  countByRating,
+  countByRated,
   findById,
   filterByGenre,
   getAllMoviesReleasedAtOrBeforeYear,

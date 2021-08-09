@@ -16,7 +16,7 @@ This challenge is designed to assess the JavaScript skills you have gained so fa
 
    This will install the libraries needed to run the tests.
 
-1. Open up the repository in VSCode. Follow the instructions below to complete the Lab.
+1. Open up the repository in VSCode. Follow the instructions below to complete the assessment.
 
 ### Tests
 

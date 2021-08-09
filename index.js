@@ -78,7 +78,7 @@ function countByRating() {}
  * @returns {Object|null} The movie object with the matching `imdbID`.
  *
  * EXAMPLE:
- *  findById("tt1979376");
+ *  findById(movies, "tt1979376");
  *  //> {
       // Toy Story 4
     };

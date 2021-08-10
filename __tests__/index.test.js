@@ -6,7 +6,6 @@ const {
   findById,
   filterByGenre,
   getAllMoviesReleasedAtOrBeforeYear,
-  getBiggestBoxOfficeMovie,
 } = require("..");
 
 const movies = require("../movies");
@@ -235,24 +234,6 @@ describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
     const year = 2000;
     const actual = getAllMoviesReleasedAtOrBeforeYear([], year);
     const expected = [];
-    expect(actual).toEqual(expected);
-  });
-});
-
-describe("getBiggestBoxOfficeMovie()", () => {
-  test("should return the name of the movie with the highest box office", () => {
-    const actual = getBiggestBoxOfficeMovie(movies);
-    const expected = "Incredibles 2";
-    expect(actual).toEqual(expected);
-  });
-  test("should dynamically change depending on the movies inputted", () => {
-    const actual = getBiggestBoxOfficeMovie(alternative);
-    const expected = "Black Panther";
-    expect(actual).toEqual(expected);
-  });
-  test("should return `null` if there are no movies", () => {
-    const actual = getBiggestBoxOfficeMovie([]);
-    const expected = null;
     expect(actual).toEqual(expected);
   });
 });

@@ -131,19 +131,6 @@ function filterByGenre() {}
  */
 function getAllMoviesReleasedAtOrBeforeYear() {}
 
-/**
- * getBiggestBoxOfficeMovie()
- * -----------------------------
- * Returns the name of the movie with the highest `boxOffice` amount.
- * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
- * @returns {string} The name of the movie that made the most money at the box office.
- *
- * EXAMPLE:
- *  getBiggestBoxOfficeMovie(movies);
- *  //> "Incredibles 2"
- */
-function getBiggestBoxOfficeMovie() {}
-
 // Do not change anything below this line.
 module.exports = {
   getAllMovieTitles,
@@ -153,5 +140,4 @@ module.exports = {
   findById,
   filterByGenre,
   getAllMoviesReleasedAtOrBeforeYear,
-  getBiggestBoxOfficeMovie,
 };

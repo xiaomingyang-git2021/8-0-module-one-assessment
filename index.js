@@ -77,18 +77,15 @@ console.log(getHighestMetascore(exampleMovies));
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function findTotalIMDBRating(movies){
-  let total = 0;
-  for(let i = 0; i < movies.length; i++){
-    total += Number(movies[i].imdbRating)
-  }
-  return total;
-}
 function getAverageIMDBRating(movies) {
   if(!movies.length){
     return 0;
   }
-  return findTotalIMDBRating(movies) / movies.length;
+  let total = 0;
+  for(let i=0; i<movies.length; i++){
+    total += Number(movies[i].imdbRating)
+  }
+  return total / movies.length;
 }
 console.log(getAverageIMDBRating(exampleMovies));
 
@@ -137,14 +134,13 @@ function findById(movies, id) {
   if(!movies.length || id === undefined ){
     return null;
   }
-  // let findById = {};
+
   for(let i=0; i<movies.length; i++){
     if(movies[i].imdbID === id){
-      return movies[i].title;
-    } else {
-      return null;
-    }
+      return movies[i];
+    }  
   }
+  return null;
 }
 // console.log(findById(exampleMovies, "tt1979376"));
 
@@ -168,24 +164,17 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function caseInsensitive(movies){
-  for(let i=0; i<movies.length; i++){
-    movies[i].genre.toLowerCase()
-  }
-}
+
 function filterByGenre(movies, genre) {
   if(!movies.length || genre === undefined){
     return [];
   }
   let filterByGenre = [];
-  for(let i=0; i<movies.length; i++){
-    if(movies[i].genre.includes(genre)){
-      // if(movies[i].genre.toLowerCase()==genre.toLowerCase()){
-        filterByGenre.push(movies[i].title);
-      // }
-    } else {
-      return [];
-    }
+  let input = genre.toUpperCase();
+  for(let i=0; i<movies.length; i++){ 
+    if(movies[i].genre.toUpperCase().includes(input)){
+      filterByGenre.push(movies[i]);
+    } 
   }
   return filterByGenre;
 }
@@ -216,13 +205,14 @@ function filterByGenre(movies, genre) {
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   let getAllMoviesReleasedAtOrBeforeYear = [];
   for(let i=0; i<movies.length; i++){
-    if(Number(movies[i].released.split()) <= year){
-      getAllMoviesReleasedAtOrBeforeYear.push(movies[i].title);
-    }
+    let date = movies[i].released.split(" ")
+    if(Number(date[2]) <= year){
+      getAllMoviesReleasedAtOrBeforeYear.push(movies[i]);
+    } 
   }
   return getAllMoviesReleasedAtOrBeforeYear;
 }
-// console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000));
+console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000));
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -235,18 +225,21 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-// function formatBoxOffice(movies){
-//   for(let i=0; i<movies.length; i++){
-//     return movies[i].boxOffice.slice(1);
-//   }
-// }
+function convertToNumber(str){
+  return Number(str.slice(1).split(",").join(""));
+}
 
 function getBiggestBoxOfficeMovie(movies) {
-  let biggest = Number(movies[0].boxOffice.slice(1).split(",").join(""));
-  let name = "";
+  if(!movies.length){
+    return null;
+  }
+  
+  let biggest = convertToNumber(movies[0].boxOffice);
+  let name = movies[0].title;
   for(let i=1; i<movies.length; i++){
-    if(Number(movies[i].boxOffice.slice(1).split(",").join("")) > biggest){
-      biggest = movies[i].boxOffice.slice(1).split(",").join("");
+    let currentBoxOffice = convertToNumber(movies[i].boxOffice)
+    if(currentBoxOffice > biggest){
+      biggest = currentBoxOffice;
       name = movies[i].title;
     }
   }

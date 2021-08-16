@@ -38,7 +38,6 @@ function getAllMovieTitles(movies) {
   }
   return movieTitles;
 }
-console.log(getAllMovieTitles(exampleMovies));
 
 /**
  * getHighestMetascore()
@@ -64,7 +63,6 @@ function getHighestMetascore(movies) {
   }
   return highest;
 }
-console.log(getHighestMetascore(exampleMovies));
 
 /**
  * getAverageIMDBRating()
@@ -87,7 +85,7 @@ function getAverageIMDBRating(movies) {
   }
   return total / movies.length;
 }
-console.log(getAverageIMDBRating(exampleMovies));
+
 
 /**
  * countByRating()
@@ -114,7 +112,7 @@ function countByRating(movies) {
   }
   return countByRating;
 }
-console.log(countByRating(exampleMovies));
+
 
 /**
  * findById()
@@ -142,7 +140,7 @@ function findById(movies, id) {
   }
   return null;
 }
-// console.log(findById(exampleMovies, "tt1979376"));
+
 
 /**
  * filterByGenre()
@@ -178,7 +176,7 @@ function filterByGenre(movies, genre) {
   }
   return filterByGenre;
 }
-// console.log(filterByGenre(exampleMovies, "Horror"));
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -212,7 +210,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   }
   return getAllMoviesReleasedAtOrBeforeYear;
 }
-console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000));
+
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -233,7 +231,6 @@ function getBiggestBoxOfficeMovie(movies) {
   if(!movies.length){
     return null;
   }
-  
   let biggest = convertToNumber(movies[0].boxOffice);
   let name = movies[0].title;
   for(let i=1; i<movies.length; i++){
@@ -245,7 +242,7 @@ function getBiggestBoxOfficeMovie(movies) {
   }
   return name;
 }
-console.log(getBiggestBoxOfficeMovie(exampleMovies));
+
 
 // Do not change anything below this line.
 module.exports = {
